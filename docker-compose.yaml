@@ -1,0 +1,44 @@
+services:
+#-------------------------------------
+# Web App
+#-------------------------------------
+  web:
+    depends_on:
+      - api
+    image: web-${IMAGE_NAME}
+    build:
+      context: ./${IMAGE_PATH}
+    container_name: dev-web-${IMAGE_NAME}
+    networks:
+      - frontend
+#-------------------------------------
+# API
+#-------------------------------------
+  api:
+    depends_on:
+      - db
+    image: api-${IMAGE_NAME}
+    build:
+      context: ./${IMAGE_PATH}
+    container_name: dev-api-${IMAGE_NAME}
+    networks:
+      - frontend
+      - backend
+#-------------------------------------
+# DB
+#-------------------------------------
+  db:
+    image: db-${IMAGE_NAME}
+    build:
+      context: ./${IMAGE_PATH}
+    container_name: dev-db-${IMAGE_NAME}
+    networks:
+      - backend
+#-------------------------------------
+# Networks
+#-------------------------------------
+networks:
+  frontend:
+    name: "frontend-${DOCKER_NETWORK_NAME}"
+  backend:
+    name: "backend-${DOCKER_NETWORK_NAME}"
