@@ -20,8 +20,8 @@ The middle service - **api** is on both of the created networks in order to prov
 
 ## General Requirements:
 ```
-docker
-docker-compose
+docker engine >= 19.03.0
+docker-compose >= 1.29.2
 ```
 ## MacOS Requirements:
 ```
@@ -30,6 +30,7 @@ Docker Desktop
 
 ## Prerequisite:
 Make sure the docker daemon is running.
+** The latest version of docker compose should be installed! **
 
 ## Instructions:
 
