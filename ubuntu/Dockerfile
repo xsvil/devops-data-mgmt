@@ -16,4 +16,4 @@ RUN passwd -d root
 ENTRYPOINT service ssh restart && tail -f /dev/null
 
 # Expose port 22
-# EXPOSE 22
+EXPOSE 22
